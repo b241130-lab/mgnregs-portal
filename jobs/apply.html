@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MGNREGS - Job Application</title>
+  <link rel="stylesheet" href="apply.css">
+</head>
+
+<body>
+
+  <div class="apply-container">
+    <h2>MGNREGS Job Application</h2>
+    <form class="apply-form" id="applyForm">
+
+      <!-- Personal Info -->
+      <h3>Personal Information</h3>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="aadhaar">Aadhaar Number</label>
+        <input type="text" id="aadhaar" required>
+      </div>
+
+      <div class="form-group">
+        <label for="jobcard">Job Card Number</label>
+        <input type="text" id="jobcard" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" min="18" max="100" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="">--Select--</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <h3>Contact Details</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email">
+        </div>
+      </div>
+
+      <!-- Location Info -->
+      <h3>Location Details</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" required>
+        </div>
+        <div class="form-group">
+          <label for="district">District</label>
+          <input type="text" id="district" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="block">Block / Panchayat</label>
+          <input type="text" id="block" required>
+        </div>
+        <div class="form-group">
+          <label for="village">Village</label>
+          <input type="text" id="village" required>
+        </div>
+      </div>
+
+      <!-- Work Preference -->
+      <h3>Work Preference</h3>
+      <div class="form-group">
+        <label for="job">Preferred Work</label>
+        <select id="job" required>
+          <option value="">--Choose--</option>
+          <option>Road Construction</option>
+          <option>Pond Digging</option>
+          <option>Well Deepening</option>
+          <option>Tree Plantation</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="workplace">Preferred Work Location</label>
+        <input type="text" id="workplace" placeholder="Nearby village / Panchayat">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="availability">Available From</label>
+          <input type="date" id="availability" required>
+        </div>
+        <div class="form-group">
+          <label for="hours">Daily Hours</label>
+          <input type="number" id="hours" min="2" max="12" required>
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <h3>Additional Information</h3>
+      <div class="form-group">
+        <label for="experience">Previous Experience</label>
+        <textarea id="experience" rows="4" placeholder="Any past work experience"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="emergency">Emergency Contact</label>
+        <input type="text" id="emergency" placeholder="Name & Mobile Number">
+      </div>
+
+      <div class="form-group">
+        <label for="idproof">Upload ID Proof</label>
+        <input type="file" id="idproof" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <form class="apply-form" id="applyForm">
+        <!-- all your form fields here -->
+        <button type="submit" class="apply-btn">Submit Application</button>
+      </form>
+
+      <div id="statusMessage" class="status-message"></div>
+
+      <script>
+        document.getElementById("applyForm").addEventListener("submit", function (e) {
+          e.preventDefault(); // prevent page refresh
+
+          // Example: always show "Pending" after submission
+          document.getElementById("statusMessage").innerText =
+            "✅ Application Submitted Successfully.\nStatus: Pending Verification";
+        });
+      </script>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGNREGS - Search jobs</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div id="navbar" class="obj-width">
+            <div id="logo-container">
+                <a href="../index.html"><img class="logo" src="../images/logo.jpeg" alt="MGNREGS Logo"></a>
+                <span class="portal-name">MGNREGS PORTAL</span>
+            </div>
+
+            <ul id="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">Browse Jobs</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <button id="w-btn">Join</button>
+            </ul>
+
+            <i id="bar" class='bx  bx-menu'></i>
+        </div>
+    </header>
+
+    <div id="jobDetails" class="extra-space obj-width">
+    </div>
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="obj-width">
+            <div class="top">
+                <div>
+                    <img class="logo" src="../images/logo.jpeg" alt="">
+                    <p>Ensuring 100 Days of Employment for Every Rural Household</p>
+                </div>
+                <div>
+                    <a href="https://www.mygov.in/" target="_blank">
+                        <i class='bx  bx-building-house'></i>
+                    </a>
+                    <a href="https://www.mygov.in/" target="_blank">
+                        <i class='bx  bx-water-drop-alt'></i>
+                    </a>
+                    <a href="https://www.mygov.in/" target="_blank">
+                        <i class='bx  bx-spanner'></i>
+                    </a>
+                    <a href="https://www.mygov.in/" target="_blank">
+                        <i class='bx  bx-traffic-barrier'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bottom">
+                <div>
+                    <h3>Citizen Services</h3>
+                    <a href="#">Raise Work Demand</a>
+                    <a href="#">Job Card Status</a>
+                    <a href="#">Muster Roll</a>
+                    <a href="#">Wage Payments</a>
+                    <a href="#">Work Allocation</a>
+                </div>
+                <div>
+                    <h3>Government Information</h3>
+                    <a href="#">Ministry of Rural Development</a>
+                    <a href="#">State NREGS Portals</a>
+                    <a href="#">Annual Reports</a>
+                    <a href="#">Guidelines & Circulars</a>
+                </div>
+                <div>
+                    <h3>Help & Support</h3>
+                    <a href="#">Helpline Numbers</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Grievance Redressal</a>
+                    <a href="#">Contact Panchayat</a>
+                </div>
+                <div>
+                    <h3>Legal & Policies</h3>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">RTI</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParam = new URLSearchParams(window.location.search);
+            const index = urlParam.get("id");
+
+            const selectJob = jCategory[index];
+
+            const jobDetailsContainer = document.getElementById("jobDetails")
+
+            jobDetailsContainer.innerHTML =
+                `
+                <div class="job-header">
+            <div class="job-img-row">
+                <img src=${selectJob.image} alt="">
+                <div>
+                    <h2>${selectJob.companyName}</h2>
+                    <span>${selectJob.location}</span>
+                </div>
+            </div>
+            <a id="g-btn" href="apply.html?id=${index}">Apply Now</a>
+        </div>
+        <div class="features sec-space obj-width">
+
+        <div class="fe-box">
+            <div>
+                <img src="../images/clipboard.jpeg" alt="">
+                <h3>Work Demand</h3>
+                    <p>${selectJob.workDemand}</p>
+            </div>
+            <div>
+                <img src="../images/tools.jpeg" alt="">
+                <h3>Work Category</h3>
+                <p>${selectJob.workcategory}</p>
+            </div>
+            <div>
+                <img src="../images/hour.png" alt="">
+                <h3>Work Duration</h3>
+                <p>${selectJob.dailyHours}</p>
+            </div>
+            <div>
+                <img src="../images/fe 3.jpeg" alt="">
+                <h3>Wage Rate (per day)</h3>
+                <p>${selectJob.rate}</p>
+            </div>
+        </div>
+    </div>
+    <div class="job-description">
+        <h3>Work Description</h3>
+        <p>${selectJob.description}</p>
+
+        <h3>Workplace</h3>
+        <p>- ${selectJob.workplace}</p>
+
+        <h3>Skill Requirement</h3>
+        <p>- ${selectJob.skillrequirement}</p>
+
+        <h3>Implementing Agency</h3>
+        <p>- ${selectJob.implementingAgency}</p>
+
+        <h3>Eligibility Criteria</h3>
+        <p>- ${selectJob.eligibilityCriteria}</p>
+    </div>
+    `
+    });
+    </script>
+    <script src="joblist.js"></script>
+    <script src="../toggle.js"></script>
+    <script src="jobSearch.js"></script>
+</body>
+
+</html>
